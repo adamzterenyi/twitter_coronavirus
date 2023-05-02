@@ -34,7 +34,7 @@ for k,v in items[:10]:
 print("keys, values=", keys, values)
 
 # make bar graph
-plt.rcParams["figure.figsize"] = (1m, 8)
+plt.rcParams["figure.figsize"] = (11, 8)
 plt.ylabel('Number of Tweets', labelpad = 10)
 plt.xticks(range(len(keys)), keys)
 plt.bar(range(len(keys)), values, color = 'orange', width = 0.4)
