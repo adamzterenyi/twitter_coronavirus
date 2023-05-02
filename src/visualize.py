@@ -34,13 +34,14 @@ for k,v in items[:10]:
 print("keys, values=", keys, values)
 
 # make bar graph
-plt.ylabel('Number of Tweets', )
+
+plt.ylabel('Number of Tweets', labelpad=10)
 plt.xticks(range(len(keys)), keys)
 plt.bar(range(len(keys)), values, color = 'orange', width = 0.4)
 
 if 'country' in args.input_path:
-    plt.xlabel('Country', labelpad=10)
+    plt.xlabel('Country')
     plt.savefig(f'{args.key}_country.png')
-else:
-    plt.xlabel('Language', labelpad=10)
+elif 'lang' in args.input_path:
+    plt.xlabel('Language')
     plt.savefig(f'{args.key}_language.png')
