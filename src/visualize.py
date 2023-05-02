@@ -35,6 +35,7 @@ print("keys, values=", keys, values)
 
 # make bar graph
 plt.ylabel('Number of Tweets')
+plt.xticks(range(len(keys)), keys)
 plt.bar(k, v, color = 'orange', width = 0.4)
 
 if 'country' in args.input_path:
