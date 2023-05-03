@@ -27,7 +27,7 @@ $ ./src/visualize.py --input_path=reduced_country --key='#coronavirus'
 ```
 To output:
 ### Tweets Using #coronavirus (sorted by top 10 countries for 2020)
-<img src=#coronavirus_country.png />
+<img src=https://github.com/adamzterenyi/twitter_coronavirus/blob/master/%23coronavirus_country.png />
 
 I used
 ```
@@ -35,7 +35,7 @@ $ ./src/visualize.py --input_path=reduced_lang --key='#coronavirus'
 ```
 To output:
 ### Tweets Using #coronavirus (sorted by top 9 languages for 2020)
-<img src=#coronavirus_language.png />
+<img src=https://github.com/adamzterenyi/twitter_coronavirus/blob/master/%23coronavirus_language.png />
 
 I used
 ```
@@ -43,10 +43,10 @@ $ ./src/visualize.py --input_path=reduced_country --key='#코로나바이러스'
 ```
 To output: 
 ### Tweets Using #코로나바이러스 (sorted by top 10 countries for 2020)
-<img src=#코로나바이러스_country.png />
+<img src=https://github.com/adamzterenyi/twitter_coronavirus/blob/master/%23%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4_country.png />
 
 I used
 $ ./src/visualize.py --input_path=reduced_lang --key='#코로나바이러스'
 To output:
 ### Tweet Using #코로나바이러스 (sorted by top 10 languages for 2020)
-<img src=#코로나바이러스_language.png />
+<img src=https://github.com/adamzterenyi/twitter_coronavirus/blob/master/%23%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4_language.png />
