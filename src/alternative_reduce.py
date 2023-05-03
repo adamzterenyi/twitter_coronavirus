@@ -3,45 +3,51 @@
 # command line args
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--input_path',required=True)
-parser.add_argument('--key',required=True)
-parser.add_argument('--percent',action='store_true')
+parser.add_argument('--input_paths',nargs='+',required=True)
 args = parser.parse_args()
 
 # imports
 import os
 import json
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from collections import Counter,defaultdict
 
-# open the input path
-with open(args.input_path) as f:
-    counts = json.load(f)
+# dataset creation
+total = {}
 
-# normalize the counts by the total values
-if args.percent:
-    for k in counts[args.key]:
-        counts[args.key][k] /= counts['_all'][k]
+for hashtag in args.input_paths:
+    days_tweets = {}
+    for day in sorted(os.listdir('outputs')):
+        output = os.path.join('outputs', day)
+        date = output[18:26]
+        if os.path.isfile(output):
+            if 'lang' in output:
+                number_of_tweets = 0
+                with open(output) as f:
+                    tweets = json.load(f)
+                    for k in tweets:
+                        if hashtag == k:
+                            for key in tweets[k]:
+                                number_of_tweets += tweets[k][key]
+                days_tweets[date] = number_of_tweets
+                print("number_of_tweets=", number_of_tweets)
+    total[hashtag] = days_tweets
 
-# print the count values
-keys = []
-values = []
-items = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)
-for k,v in items[:10]:
-    print(k,':',v)
-    keys = [k] + keys
-    values = [v] + values
-print("keys, values=", keys, values)
-
-# make bar graph
-plt.rcParams["figure.figsize"] = (11, 8)
-plt.ylabel('Number of Tweets', labelpad = 10) 
-plt.xticks(range(len(keys)), keys)
-plt.bar(range(len(keys)), values, color = 'orange', width = 0.4)
-
-if 'country' in args.input_path:
-    plt.xlabel('Country')
-    plt.savefig(f'{args.key}_country.png')
-elif 'lang' in args.input_path:
-    plt.xlabel('Language')
-    plt.savefig(f'{args.key}_language.png')
+# plotting time
+dates = []
+for hashtag, total_days in total.items():
+    keys = []
+    values = []
+    for k, v in total_days.items():
+        keys.append(k)
+        values.append(v)
+        dates.append(k)
+    plt.plot(range(len(keys)), values, label = hashtag)
+plt.rcParams["figure.figsize"] = [12, 8]
+plt.xlabel('Date')
+plt.ylabel('Number of Tweets', labelpad = 10)
+plt.xticks(str(keys[::60]))
+plt.legend()
+plt.savefig(f'{args.input_paths}.png')
