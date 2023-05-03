@@ -51,6 +51,6 @@ plt.xlabel('Date')
 plt.ylabel('Number of Tweets Using Hashtag')
 new_dates = [datetime.strptime(d, '%y-%m-%d') for d in dates]
 #plt.xticks(range(len(keys))[::60], dates[::60], rotate = 45)
-plt.xticks(range(len(keys)), dates)
+plt.xticks(range(len(keys))[::60], dates[::60])
 plt.legend()
 plt.savefig(f'{args.input_paths}.png')
