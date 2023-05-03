@@ -1,6 +1,6 @@
 # Coronavirus Twitter Analysis
 
-For this project, I analyzed a dataset of all geotagged tweets from 2020 andvisualized these tweets' use of Covid-19-related hashtags.
+For this project, I analyzed a dataset of all geotagged tweets from 2020 and visualized these tweets' use of Covid-19-related hashtags.
 
 ## Summary
 
@@ -17,7 +17,7 @@ I did this through several steps:
     * `visualize.py` creates bar graphs showcasing either the top ten countries or languages tweets were written from or in.
         * You can filter by one hashtag and use either `reduced.lang` or `reduced.country` as the input.
     * `alternative_reduce.py` allows for tweets to be filtered by one or more hashtags, creating line graphs instead.
-        * Additionally, it creates line graphs, with a line for each hashtag.
+        * Additionally, it creates line graphs with a line for each hashtag.
 
 ## Graphs Using `visualize.py`
 
@@ -52,9 +52,11 @@ To output:
 
 #### Graph 4
 I used
+```
 $ ./src/visualize.py --input_path=reduced_lang --key='#코로나바이러스'
+```
 To output:
-### Tweet Using #코로나바이러스 (sorted by top 9 languages for 2020)
+### Tweets Using #코로나바이러스 (sorted by top 9 languages for 2020)
 <img src=https://github.com/adamzterenyi/twitter_coronavirus/blob/master/%23%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4_language.png />
 
 ## Graphs Using `alternative_reduce`
