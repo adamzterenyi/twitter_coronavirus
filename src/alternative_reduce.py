@@ -37,10 +37,10 @@ for hashtag in args.input_paths:
     total[hashtag] = days_tweets
 
 # plotting time
-dates = []
 for hashtag, total_days in total.items():
     keys = []
     values = []
+    dates = []
     for k, v in total_days.items():
         keys.append(k)
         values.append(v)
@@ -51,5 +51,6 @@ plt.xlabel('Date')
 plt.ylabel('Number of Tweets Using Hashtag')
 new_dates = [datetime.strptime(d, '%y-%m-%d') for d in dates]
 #plt.xticks(range(len(keys))[::60], dates[::60], rotate = 45)
+plt.xticks(range(len(keys)), dates)
 plt.legend()
 plt.savefig(f'{args.input_paths}.png')
