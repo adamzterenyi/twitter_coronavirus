@@ -17,7 +17,6 @@ from collections import Counter,defaultdict
 # dataset creation
 
 total = {}
-number_of_tweets = 0
 
 for hashtag in args.input_paths:
     days_tweets = {}
@@ -26,6 +25,7 @@ for hashtag in args.input_paths:
         date = output[18:26]
         if os.path.isfile(output):
             if 'lang' in output:
+                number_of_tweets = 0
                 with open(output) as f:
                     tweets = json.load(f)
                     for k in tweets:
