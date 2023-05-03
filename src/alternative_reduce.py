@@ -13,9 +13,9 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from collections import Counter,defaultdict
-from datetime import datetime
 
 # dataset creation
+
 total = {}
 
 for hashtag in args.input_paths:
@@ -33,7 +33,7 @@ for hashtag in args.input_paths:
                             for key in tweets[k]:
                                 number_of_tweets += tweets[k][key]
                 days_tweets[date] = number_of_tweets
-                print("number_of_tweets=", number_of_tweets)
+                # print("number_of_tweets=", number_of_tweets)
     total[hashtag] = days_tweets
 
 # plotting time
@@ -49,8 +49,6 @@ for hashtag, total_days in total.items():
 plt.rcParams["figure.figsize"] = [12, 8]
 plt.xlabel('Date')
 plt.ylabel('Number of Tweets Using Hashtag')
-new_dates = [datetime.strptime(d, '%y-%m-%d') for d in dates]
-#plt.xticks(range(len(keys))[::60], dates[::60], rotate = 45)
-plt.xticks(range(len(keys))[::60], dates[::60])
+plt.xticks(range(len(keys))[::30], dates[::30], rotation = 45)
 plt.legend()
 plt.savefig(f'{args.input_paths}.png')
