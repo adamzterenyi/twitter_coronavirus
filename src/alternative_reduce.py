@@ -46,8 +46,8 @@ for hashtag, total_days in total.items():
         values.append(v)
         dates.append(k)
     plt.plot(range(len(keys)), values, label = hashtag)
-plt.rcParams["figure.figsize"] = [12, 8]
-plt.xlabel('Date')
+plt.rcParams["figure.figsize"] = [12, 10]
+plt.xlabel('Date', labelpad = 10)
 plt.ylabel('Number of Tweets Using Hashtag')
 plt.xticks(range(len(keys))[::30], dates[::30], rotation = 45)
 plt.legend()
