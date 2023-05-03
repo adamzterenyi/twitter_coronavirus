@@ -66,7 +66,7 @@ $ ./src/alternative_reduce.py --keys '#doctor' '#nurse' '#hospital'
 ```
 To output:
 ### Number of Tweets Using #doctor, #nurse, and #hospital (2020)
-<img src=https://github.com/adamzterenyi/twitter_coronavirus/blob/master/%5B'%23doctor'%2C%20'%23nurse'%2C%20'%23hospital'%5D.png />
+![](https://github.com/adamzterenyi/twitter_coronavirus/blob/master/%5B'%23doctor'%2C%20'%23nurse'%2C%20'%23hospital'%5D.png)
 
 #### Graph 2
 I used
@@ -75,4 +75,4 @@ $ ./src/alternative_reduce.py --keys '#corona' '#coronavirus'
 ```
 To output:
 ### Number of Tweets Using #corona and/or #coronavirus (2020)
-<img src=https://github.com/adamzterenyi/twitter_coronavirus/blob/master/%5B'%23corona'%2C%20'%23coronavirus'%5D.png />
+![](https://github.com/adamzterenyi/twitter_coronavirus/blob/master/%5B'%23corona'%2C%20'%23coronavirus'%5D.png)
