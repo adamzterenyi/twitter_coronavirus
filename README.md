@@ -6,16 +6,16 @@ For this project, I analyzed a dataset of all geotagged tweets from 2020 andvisu
 
 I did this through several steps:
 1. MapReduce:
-  1. Partitioning the dataset into zip files for each day of the year (this was already done for me);
-  1. Mapping the dataset using `map.py`,
-    * Whichs count the number of times a hashtag was used in each day's tweets, groups tweets by either countries-of-origin or their languages and, finally, pushes the grouped data into the `outputs` folder;
-    * (I looped over the files using `run_maps.sh`, a shell script)
-  1. Reducing the dataset using `reduce.py`,
-    * Which combines the partitioned files in `outputs` and creates two combined files based on country-of-origin and language-of-tweet: `reduced.country` and `reduced.lang`.
+    1. Partitioning the dataset into zip files for each day of the year (this was already done for me);
+    1. Mapping the dataset using `map.py`,
+        * Whichs count the number of times a hashtag was used in each day's tweets, groups tweets by either countries-of-origin or their languages and, finally, pushes the grouped data into the `outputs` folder;
+        * (I looped over the files using `run_maps.sh`, a shell script)
+    1. Reducing the dataset using `reduce.py`,
+        * Which combines the partitioned files in `outputs` and creates two combined files based on country-of-origin and language-of-tweet: `reduced.country` and `reduced.lang`.
 1. Visualization: 
-  * With the data now combined, I then visualized it by creating graphs using the matplotlib library.
-  * `visualize.py` creates bar graphs showcasing either the top ten countries or languages tweets were written.
-  * `alternative_reduce.py` allows for tweets to be filtered by one or more hashtags, creating line graphs instead.
+    * With the data now combined, I then visualized it by creating graphs using the matplotlib library.
+    * `visualize.py` creates bar graphs showcasing either the top ten countries or languages tweets were written.
+    * `alternative_reduce.py` allows for tweets to be filtered by one or more hashtags, creating line graphs instead.
 
 ## Graphs
 
