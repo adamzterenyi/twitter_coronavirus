@@ -3,7 +3,7 @@
 # command line args
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--input_paths',nargs='+',required=True)
+parser.add_argument('--hashtags',nargs='+',required=True)
 args = parser.parse_args()
 
 # imports
@@ -18,7 +18,7 @@ from collections import Counter,defaultdict
 
 total = {}
 
-for hashtag in args.input_paths:
+for hashtag in args.hashtags:
     days_tweets = {}
     for day in sorted(os.listdir('outputs')):
         output = os.path.join('outputs', day)
@@ -52,4 +52,4 @@ plt.ylabel('Number of Tweets Using Hashtag')
 plt.xticks(range(len(keys))[::30], dates[::30], rotation = 45)
 plt.legend()
 plt.subplots_adjust(bottom=0.21)
-plt.savefig(f'{args.input_paths}.png')
+plt.savefig(f'{args.hashtags}.png')

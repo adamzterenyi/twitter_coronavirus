@@ -31,11 +31,13 @@ for k,v in items[:10]:
     print(k,':',v)
     keys = [k] + keys
     values = [v] + values
-print("keys, values=", keys, values)
 
 # make bar graph
 plt.rcParams["figure.figsize"] = (11, 8)
-plt.ylabel('Number of Tweets', labelpad = 10)
+if args.percent:
+    plt.ylabel('Percent of Total Tweets', labelpad = 10)
+else:
+    plt.ylabel('Number of Tweets', labelpad = 10)
 plt.xticks(range(len(keys)), keys)
 plt.bar(range(len(keys)), values, color = 'orange', width = 0.4)
 
