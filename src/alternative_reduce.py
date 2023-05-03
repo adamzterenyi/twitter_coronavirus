@@ -17,6 +17,7 @@ from collections import Counter,defaultdict
 # dataset creation
 
 total = {}
+number_of_tweets = 0
 
 for hashtag in args.input_paths:
     days_tweets = {}
@@ -25,7 +26,6 @@ for hashtag in args.input_paths:
         date = output[18:26]
         if os.path.isfile(output):
             if 'lang' in output:
-                number_of_tweets = 0
                 with open(output) as f:
                     tweets = json.load(f)
                     for k in tweets:
@@ -51,5 +51,5 @@ plt.xlabel('Date', labelpad = 10)
 plt.ylabel('Number of Tweets Using Hashtag')
 plt.xticks(range(len(keys))[::30], dates[::30], rotation = 45)
 plt.legend()
-plt.subplots_adjust(bottom=0.20)
+plt.subplots_adjust(bottom=0.21)
 plt.savefig(f'{args.input_paths}.png')
